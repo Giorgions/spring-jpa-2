@@ -1,10 +1,20 @@
 package pl.edu.wszib.springjpa.model;
 
+import javax.persistence.*;
 import java.util.List;
 
+@Entity
+@Table
 public class Ksiazka {
 
+  @Id
+  @GeneratedValue
   private Integer id;
+
+  @ManyToMany
+  @JoinTable(name = "ksiazka_autor",
+    joinColumns = @JoinColumn(name = "ksiazka_id", referencedColumnName = "id"),
+          inverseJoinColumns = @JoinColumn(name = "autor_id", referencedColumnName = "id"))
   private List<Autor> autorzy;
   private String tytul;
   private String gatunek;

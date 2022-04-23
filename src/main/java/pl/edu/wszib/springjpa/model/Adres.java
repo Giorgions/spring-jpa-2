@@ -1,8 +1,17 @@
 package pl.edu.wszib.springjpa.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.time.Instant;
 
+@Entity
+@Table
 public class Adres {
+
+  @Id
+  @GeneratedValue
   private String ulica;
   private String kodPocztowy;
   private String miasto;
